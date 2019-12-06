@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>optimisationrsrs</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container"> 
+  <div id="contact">
+  
+    <h3>OptimaVida</h3>
+   
+    <fieldset>
+      <input placeholder="nomber d'heures de cours en université" type="text" id='a' name='a' required autofocus>
+    </fieldset>
+    <fieldset>
+        <input placeholder="le cout d'une de travail pour un étudiant" type="text" id='b' name='b' required autofocus>
+      </fieldset>
+      <fieldset>
+          <input placeholder="le budget minimum d'un étudiant durant une semaine" type="text" id='c' name='c' required autofocus>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+          </fieldset>
+    <fieldset>
+      <div id="x1">le nomber de veille d'un étudiant par semaine: </div>
+      <div id="x2">le nomber d'heures de révision d'un étudiant par semaine: </div>
+      <div id="x3">le nomber d'heures de loisir d'un étudiant par semaine: </div>
+      <div id="x4">le nomber d'heures de travail d'un étudiant par semaine: </div>
+      <div id="x5"> le nomber d'heures d'autres activités extra-scolaires: </div>
+    </fieldset>
+  
+</div>
+</div>
+<!-- partial -->
+  
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+$('#contact-submit').on('click',()=>{
+  $.ajax({
+              url: '/',
+              type: 'post',
+              data: {a:$('#a').val(),b:$('#b').val(),c:$('#c').val(),},
+              success: function(data){
+                 $('#x1').append(data.x1);
+                 $('#x2').append(data.x2);
+                 $('#x3').append(data.x3);
+                 $('#x4').append(data.x4);
+                 $('#x5').append(data.x5);
+                 console.log(data);
+              },
+});
+});
+</script>
+</html>
